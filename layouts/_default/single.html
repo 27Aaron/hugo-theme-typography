@@ -1,0 +1,49 @@
+{{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
+
+{{ define "description" }}
+{{ $desc := .Params.description | default (.Summary | plainify | truncate 150) }}
+<meta name="description" content="{{ $desc }}">
+<meta name="og:description" content="{{ $desc }}">
+<meta name="twitter:site" content="{{ .Site.Title }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:card" content="summary">
+{{ end }}
+
+{{ define "main" }}
+<div class="autopagerize_page_element">
+  <div class="content">
+    <div class="post-page">
+      {{ partial "post-item.html" (dict "page" . "detail" true) }}
+      {{ if eq .Type "post" }}
+      <div class="share">
+        <span>{{ i18n "share" }}</span>&nbsp;
+        <span class="soc">
+          <a class="fa fa-twitter" href="https://twitter.com/home?status={{ .Site.BaseURL }}{{ .RelPermalink }}%20{{ .Site.Title }}%20{{ .Title }}" target="_blank" rel="noopener noreferrer"></a>
+        </span>
+      </div>
+      {{ end }}
+      {{ if eq .Type "post" }}
+      <div class="pagination">
+        <p class="clearfix">
+          {{ with .PrevInSection }}
+          <span class="pre pagbuttons">
+            <a role="navigation" href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <i class="fa fa-angle-double-left"></i>&nbsp;{{ i18n "prev_post" }}: {{ .Title }}
+            </a>
+          </span>
+          {{ end }}
+          {{ with .NextInSection }}
+          <span>&nbsp;</span>
+          <span class="next pagbuttons">
+            <a role="navigation" href="{{ .RelPermalink }}" title="{{ .Title }}">
+              {{ i18n "next_post" }}: {{ .Title }}&nbsp;<i class="fa fa-angle-double-right"></i>
+            </a>
+          </span>
+          {{ end }}
+        </p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

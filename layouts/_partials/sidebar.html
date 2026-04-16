@@ -1,0 +1,12 @@
+<div id="side-bar" class="col-sm-3 col-xs-12 side-container invisible">
+  <div class="vertical-text site-title">
+    <h3 class="site-title-small" tabindex="-1">
+      <a class="a-title" href="{{ .Site.BaseURL }}">{{ .Site.Params.titleSecondary }}</a>
+    </h3>
+    <h1 class="site-title-large" tabindex="-1">
+      <a class="a-title" href="{{ .Site.BaseURL }}">{{ .Site.Params.titlePrimary }}</a>
+    </h1>
+  </div>
+  <br class="visible-lg visible-md visible-sm">
+  {{ partial "nav.html" . }}
+</div>

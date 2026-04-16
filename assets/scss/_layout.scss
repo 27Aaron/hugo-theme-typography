@@ -1,0 +1,116 @@
+.row {
+  margin: 0;
+}
+
+.main-container {
+  text-align: left;
+  margin: 0;
+  padding: 80px 40px;
+  overflow: hidden;
+  float: left;
+
+  :nth-child(1) {
+    margin-top: 0;
+  }
+}
+
+.no-margin-left { margin-left: 0; }
+.no-margin-right { margin-right: 0; }
+.no-margin-top { margin-top: 0; }
+.no-margin-bottom { margin-bottom: 0; }
+
+a {
+  color: $foregroundColor;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+  border-bottom: solid $foregroundColor 2px;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $backgroundColor !important;
+    background-color: $foregroundColor;
+    border-bottom: solid transparent 2px;
+  }
+
+  &:focus {
+    color: darken($foregroundColor, 30%);
+  }
+}
+
+.a-title {
+  text-decoration: none;
+  background-color: transparent;
+  border-bottom: solid transparent 2px;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
+}
+
+.current {
+  border-bottom: solid $foregroundColor 3px !important;
+}
+
+.a-mute {
+  background-color: transparent;
+  color: $foregroundColor !important;
+  text-decoration: none;
+  border-bottom: none;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $foregroundColor !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+}
+
+.soc {
+  margin: 0 5px 0 0;
+  font-size: 18px !important;
+
+  a {
+    border-bottom: solid transparent 2px;
+
+    &:hover {
+      @if lightness($foregroundColor) > 50 {
+        color: darken($foregroundColor, 10%) !important;
+      } @else {
+        color: lighten($foregroundColor, 10%) !important;
+      }
+      background-color: transparent !important;
+      text-decoration: none;
+      border-bottom: solid rgba(0, 0, 0, 0) 2px;
+    }
+
+    &:focus {
+      @if lightness($foregroundColor) > 50 {
+        color: darken($foregroundColor, 10%) !important;
+      } @else {
+        color: lighten($foregroundColor, 10%) !important;
+      }
+    }
+  }
+}
+
+.meta-item {
+  margin: 0 10px 0 0;
+}
+
+footer {
+  margin-top: 10px;
+  padding-top: 0;
+  font-size: 12px;
+  font-weight: bold;
+
+  * {
+    margin: 0;
+  }
+}

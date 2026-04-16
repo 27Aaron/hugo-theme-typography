@@ -1,0 +1,39 @@
+{{ define "title" }}{{ i18n "Archive" }} · {{ .Site.Title }}{{ end }}
+
+{{ define "description" }}
+<meta name="description" content="{{ i18n "Archive" }} - {{ .Site.Title }}">
+{{ end }}
+
+{{ define "main" }}
+<div class="autopagerize_page_element">
+  <div class="content">
+    <p class="post-title">{{ i18n "Archive" }} {{ i18n "ArchiveCount" (len .Site.RegularPages) }}</p>
+    <div class="archive animated fadeInDown">
+      <ul class="list-with-title">
+        {{ $pages := where .Site.RegularPages "Type" "post" }}
+        {{ range ($pages.GroupByDate "2006") }}
+        <li class="listing-title">
+          <h4 class="ar-year">{{ .Key }}</h4>
+          <ul class="listing">
+            {{ range .Pages }}
+            <li class="listing-item">
+              <div class="listing-post">
+                <p class="post-title">
+                  <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                </p>
+                <div class="post-time">
+                  <span class="ar-date">{{ .Date.Format "01-02" }}</span>
+                </div>
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+    {{ partial "pagination.html" $paginator }}
+  </div>
+</div>
+{{ end }}

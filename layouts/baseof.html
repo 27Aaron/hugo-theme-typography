@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+{{ partial "head.html" . }}
+<body>
+  <div id="stage" class="container">
+    <div class="row">
+      {{ partial "sidebar.html" . }}
+      <div id="main-container" class="col-sm-9 col-xs-12 main-container invisible">
+        {{ block "main" . }}{{ end }}
+      </div>
+      <div class="visible-xs site-bottom-footer">
+        {{ partial "footer.html" . }}
+      </div>
+    </div>
+  </div>
+
+  {{ $js := resources.Get "js/typography.js" | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}"></script>
+</body>
+</html>

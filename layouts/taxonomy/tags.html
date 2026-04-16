@@ -1,0 +1,27 @@
+{{ define "title" }}{{ i18n "Tags" }} · {{ .Site.Title }}{{ end }}
+
+{{ define "description" }}
+<meta name="description" content="{{ i18n "Tags" }} - {{ .Site.Title }}">
+{{ end }}
+
+{{ define "main" }}
+<div class="autopagerize_page_element">
+  <div class="content">
+    <div class="archive animated fadeInDown">
+      <p class="post-title">{{ i18n "Tags" }}</p>
+      <ul class="listing">
+        {{ range .Site.Taxonomies.tags }}
+        <li class="listing-item">
+          <div class="listing-post">
+            <p class="post-title">
+              <a href="{{ .Page.RelPermalink }}" title="{{ .Page.Title }}">{{ .Page.Title }}</a>
+            </p>
+            <span class="date meta-item">{{ i18n "TagCount" .Count }}</span>
+          </div>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</div>
+{{ end }}

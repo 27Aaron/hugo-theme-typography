@@ -1,0 +1,93 @@
+html,
+body,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontList;
+  color: $foregroundColor;
+}
+
+html {
+  background: $backgroundColor;
+}
+
+.foreground {
+  background: $foregroundColor !important;
+}
+
+.background {
+  background: $backgroundColor !important;
+}
+
+.foreground-text * {
+  color: $foregroundColor !important;
+}
+
+.background-text * {
+  color: $backgroundColor !important;
+}
+
+h1 { font-size: 42px; }
+h2 { font-size: 36px; }
+h3 { font-size: 30px; }
+h4 { font-size: 24px; }
+h5 { font-size: 18px; }
+h6 { font-size: 14px; }
+
+body {
+  font-size: 18px;
+  line-height: 1.5em;
+
+  @if lightness($backgroundColor) > 50 {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
+  } @else {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi/P//Py8DpQCXISBxJlING4QaGEdDiQgAEGAAg8sST3LGZYoAAAAASUVORK5CYII=");
+  }
+
+  background-repeat: repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
+  min-height: 100vh;
+}
+
+.container {
+  background-color: transparent;
+  padding: 0;
+  position: relative;
+}
+
+.full-width-container {
+  width: 100vw;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  overflow: scroll;
+}
+
+figure > table {
+  width: 100%;
+}
+
+pre {
+  * {
+    font-family: $monoFontList;
+    background: transparent !important;
+  }
+}
+
+li {
+  margin: 5px 0;
+}

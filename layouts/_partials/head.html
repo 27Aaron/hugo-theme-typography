@@ -1,0 +1,41 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="X-UA-Compatible" content="IE=edge">
+  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+  {{ block "description" . }}
+  <meta name="description" content="{{ with .Site.Params.description }}{{ . }}{{ else }}A Blog Powered By Hugo{{ end }}">
+  {{ end }}
+
+  {{ with .Params.keywords }}
+  <meta name="keywords" content="{{ delimit . ", " }}">
+  {{ else }}
+  <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+  {{ end }}
+
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="renderer" content="webkit">
+
+  <link rel="short icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
+
+  {{ if eq .Site.Params.themeStyle "dark" }}
+  {{ with resources.Get "scss/style-dark.scss" }}
+  {{ $style := . | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ end }}
+  {{ else }}
+  {{ with resources.Get "scss/style.scss" }}
+  {{ $style := . | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ end }}
+  {{ end }}
+
+  {{ if .Site.Params.social.rss }}
+  {{ with .OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
+  {{ end }}
+  {{ end }}
+</head>

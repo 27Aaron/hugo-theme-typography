@@ -1,0 +1,42 @@
+{{/* Usage: {{ partial "post-item.html" (dict "page" . "detail" false) }} */}}
+<div class="post-container">
+  <p class="post-title">
+    {{ if .detail }}
+    <a>{{ .page.Title }}</a>
+    {{ else }}
+    <a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a>
+    {{ end }}
+  </p>
+  <p class="post-meta">
+    <span class="date meta-item">{{ i18n "posted_at" }}&nbsp;{{ .page.Date.Format "2006-01-02" }}</span>
+    {{ if $.page.Site.Params.showCategories }}
+    {{ with .page.Params.categories }}
+    <span class="meta-item">
+      <i class="fa fa-folder"></i>
+      <span>&nbsp;</span>
+      {{ range . }}
+      <a class="a-tag" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+      <span>&nbsp;</span>
+      {{ end }}
+    </span>
+    {{ end }}
+    {{ end }}
+    {{ if $.page.Site.Params.showTags }}
+    {{ with .page.Params.tags }}
+    <span class="meta-item">
+      <i class="fa fa-tag"></i>
+      <span>&nbsp;</span>
+      {{ range . }}
+      <a class="a-tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
+      <span>&nbsp;</span>
+      {{ end }}
+    </span>
+    {{ end }}
+    {{ end }}
+  </p>
+  {{ if .detail }}
+  <div class="post-abstract">{{ .page.Content }}</div>
+  {{ else }}
+  <p class="post-abstract">{{ .page.Summary }}</p>
+  {{ end }}
+</div>

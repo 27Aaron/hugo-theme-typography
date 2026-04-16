@@ -1,0 +1,20 @@
+[params]
+  titlePrimary = "Typography"
+  titleSecondary = "A minimal blog"
+  themeStyle = "light"
+  showPageCount = true
+  showCategories = true
+  showTags = true
+  keywords = ["blog", "typography"]
+
+  [params.social]
+    twitter = ""
+    github = ""
+    instagram = ""
+    weibo = ""
+    rss = true
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.0'

@@ -1,0 +1,14 @@
+{{ define "title" }}404 · {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<div class="autopagerize_page_element">
+  <div class="content">
+    <div class="post-page">
+      <div class="post-container">
+        <p class="post-title">404</p>
+        <p class="post-abstract">Page not found. <a href="{{ .Site.BaseURL }}">Go home</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

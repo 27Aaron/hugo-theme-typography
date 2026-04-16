@@ -1,0 +1,118 @@
+// Blog content typography
+.content > .post > .post-content > p {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+pre {
+  font-size: 0.8em !important;
+  background-color: #f8f8f8 !important;
+  font-family: $monoFontList !important;
+}
+
+// Hugo Chroma syntax highlighting
+.chroma {
+  .kt, .kc, .kd, .kn { color: #e96900 !important; }
+  .nf, .nb { color: #0092db !important; }
+  .m, .mf, .mb, .mh { color: #ae81ff !important; }
+  .s, .s1, .s2, .se { color: #42b983 !important; }
+  .c, .c1, .cm { color: #b3b3b3 !important; }
+  .k { color: #e96900 !important; }
+  .n, .na { color: #2973b7 !important; }
+  .nt { color: #2973b7 !important; }
+  .gi { color: #42b983 !important; }
+  .gd { color: #BA4545 !important; }
+  .gh { color: #83B917 !important; }
+  .go { color: #555 !important; }
+  .err { color: #a61717 !important; }
+}
+
+figure {
+  .gutter pre {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: none;
+    text-align: right;
+    min-width: 3em;
+  }
+
+  .code {
+    width: 99%;
+    pre {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-left: solid rgba(0, 0, 0, 0.05) 1px;
+      margin-right: 1px;
+    }
+  }
+}
+
+html {
+  height: 100%;
+  max-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin: 2rem 0;
+}
+
+p, ul, ol, dl {
+  margin: 1em 0;
+}
+
+ol ol, ul ul, ul ol, ol ul {
+  margin: 0.4em 0;
+}
+
+ul p, ol p, li p, .content li p, blockquote p, .content blockquote p {
+  margin: 0;
+  overflow: visible;
+}
+
+blockquote {
+  box-sizing: border-box;
+  margin: 1.6em 0 1.6em -2.2em;
+  padding: 0 0 0 1.6em;
+  border-left: #4a4a4a 0.4em solid;
+
+  p { margin: 0.8em 0; }
+
+  small {
+    display: inline-block;
+    margin: 0.8em 0 0.8em 1.5em;
+    font-size: 0.9em;
+    color: #ccc;
+
+    &:before { content: '\2014 \00A0'; }
+  }
+}
+
+code, tt {
+  padding: 1px 3px;
+  font-family: $monoFontList;
+  font-size: 0.85em;
+  white-space: pre-wrap;
+  border: 1px solid #E3EDF3;
+  background: #f7f7f9;
+  color: #d14;
+  border-radius: 2px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #efefef;
+  margin: 3.2em 0;
+  padding: 0;
+}
+
+.toc {
+  border: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+  padding: 10px 30px;
+}

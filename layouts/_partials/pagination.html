@@ -1,0 +1,29 @@
+{{/* Usage: {{ partial "pagination.html" . }} where . is the paginator context */}}
+{{ $paginator := . }}
+{{ if or $paginator.HasPrev $paginator.HasNext }}
+<div class="pagination no-margin-bottom">
+  <p class="clearfix">
+    {{ if $paginator.Site.Params.showPageCount }}
+    <p>
+      {{ i18n "PageNumber" $paginator.PageNumber }} / {{ i18n "PageCount" $paginator.TotalPages }}
+      &nbsp;
+    </p>
+    {{ end }}
+    <p>
+      {{ if $paginator.HasPrev }}
+      <span class="pre pagbuttons">
+        <i class="fa fa-angle-double-left"></i>&nbsp;
+        <a role="navigation" href="{{ $paginator.Prev.URL }}" aria-label="{{ i18n "prev" }}">{{ i18n "prev" }}</a>
+      </span>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+      <span>&nbsp;</span>
+      <span class="next pagbuttons">
+        <a role="navigation" href="{{ $paginator.Next.URL }}" aria-label="{{ i18n "next" }}">{{ i18n "next" }}</a>
+        &nbsp;<i class="fa fa-angle-double-right"></i>
+      </span>
+      {{ end }}
+    </p>
+  </p>
+</div>
+{{ end }}

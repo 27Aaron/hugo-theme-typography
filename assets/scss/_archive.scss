@@ -1,0 +1,48 @@
+.ar-year {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.date {
+  margin-bottom: 0px;
+}
+
+.ar-date {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.archive :first-child {
+  padding-left: 0;
+}
+
+.archive ul {
+  list-style-type: none;
+}
+
+.listing-title {
+  list-style: none;
+}
+
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
+
+.listing-item {
+  .listing-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .post-title {
+      font-size: 18px;
+      margin: 3px 0;
+    }
+
+    .post-time {
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+  }
+}

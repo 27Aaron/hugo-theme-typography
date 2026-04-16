@@ -1,0 +1,19 @@
+.pagination {
+  margin: 20px 0;
+
+  p {
+    margin: 5px 0;
+  }
+
+  .pagbuttons {
+    display: inline-block;
+  }
+
+  .pre,
+  .next {
+    a {
+      border-bottom: none;
+      font-weight: bold;
+    }
+  }
+}

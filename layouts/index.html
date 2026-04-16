@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="autopagerize_page_element">
+  <div class="content">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+    {{ range $paginator.Pages }}
+    {{ partial "post-item.html" (dict "page" . "detail" false) }}
+    {{ end }}
+    {{ partial "pagination.html" $paginator }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,66 @@
+<div id="site-nav" class="site-title-links">
+  <ul>
+    <li>
+      {{ if .IsHome }}
+      <a class="current" href="{{ .Site.BaseURL }}">{{ i18n "Home" }}</a>
+      {{ else }}
+      <a href="{{ .Site.BaseURL }}">{{ i18n "Home" }}</a>
+      {{ end }}
+    </li>
+    <li>
+      {{ if eq .Kind "section" }}
+      <a class="current" href="{{ "post" | relURL }}">{{ i18n "Archive" }}</a>
+      {{ else }}
+      <a href="{{ "post" | relURL }}">{{ i18n "Archive" }}</a>
+      {{ end }}
+    </li>
+    {{ if .Site.Taxonomies.categories }}
+    <li>
+      <a href="{{ "categories" | relURL }}">{{ i18n "Categories" }}</a>
+    </li>
+    {{ end }}
+    {{ if .Site.Taxonomies.tags }}
+    <li>
+      <a href="{{ "tags" | relURL }}">{{ i18n "Tags" }}</a>
+    </li>
+    {{ end }}
+    {{ range where .Site.Pages "Kind" "page" }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+    <li class="soc">
+      {{ with .Site.Params.social.github }}
+      <a href="https://github.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Github">
+        <i class="fa fa-github"></i>&nbsp;
+      </a>
+      {{ end }}
+      {{ with .Site.Params.social.twitter }}
+      <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i class="fa fa-twitter"></i>&nbsp;
+      </a>
+      {{ end }}
+      {{ with .Site.Params.social.instagram }}
+      <a href="https://www.instagram.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa fa-instagram"></i>&nbsp;
+      </a>
+      {{ end }}
+      {{ with .Site.Params.social.weibo }}
+      <a href="http://weibo.com/u/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Sina Weibo">
+        <i class="fa fa-weibo"></i>&nbsp;
+      </a>
+      {{ end }}
+      {{ if .Site.Params.social.rss }}
+      {{ with .OutputFormats.Get "RSS" }}
+      <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="RSS">
+        <i class="fa fa-rss"></i>&nbsp;
+      </a>
+      {{ end }}
+      {{ end }}
+    </li>
+  </ul>
+  <div class="visible-lg visible-md visible-sm site-nav-footer">
+    <br class="site-nav-footer-br">
+    {{ partial "footer.html" . }}
+  </div>
+</div>
