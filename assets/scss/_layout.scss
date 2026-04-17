@@ -109,8 +109,8 @@ a {
 
   &:hover,
   &:focus {
-    color: var(--foreground-color-strong);
-    background-color: var(--panel-color-strong);
+    color: var(--link-hover-color);
+    background-color: var(--link-hover-bg);
     outline: none;
   }
 }

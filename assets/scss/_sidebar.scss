@@ -150,11 +150,16 @@
     border-bottom: none !important;
     font-size: 24px;
     line-height: 1;
+    border-radius: 4px;
+    color: var(--foreground-color);
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
 
   a:hover,
   a:focus {
     border-bottom: none !important;
+    color: var(--link-hover-color);
+    background-color: var(--link-hover-bg);
   }
 }
 
