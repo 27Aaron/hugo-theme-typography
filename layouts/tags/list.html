@@ -7,21 +7,21 @@
 {{ define "main" }}
 <div class="autopagerize_page_element">
   <div class="content">
-    <div class="archive animated fadeInDown">
+    <section class="archive animated fadeInDown taxonomy-list-page">
       <p class="post-title">{{ i18n "Tags" }}</p>
-      <ul class="listing">
-        {{ range .Site.Taxonomies.tags }}
+      <ul class="listing taxonomy-list">
+        {{ range .Data.Terms.Alphabetical }}
         <li class="listing-item">
           <div class="listing-post">
             <p class="post-title">
-              <a href="{{ .Page.RelPermalink }}" title="{{ .Page.Title }}">{{ .Page.Title }}</a>
+              <a href="{{ .Page.RelPermalink }}" title="{{ .Page.Title }}"># {{ .Page.Title }}</a>
             </p>
             <span class="date meta-item">{{ printf (i18n "TagCount") .Count }}</span>
           </div>
         </li>
         {{ end }}
       </ul>
-    </div>
+    </section>
   </div>
 </div>
 {{ end }}

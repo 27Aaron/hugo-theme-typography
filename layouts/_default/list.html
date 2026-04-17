@@ -7,14 +7,14 @@
 {{ define "main" }}
 <div class="autopagerize_page_element">
   <div class="content">
-    <p class="post-title">{{ i18n "Archive" }} {{ printf (i18n "ArchiveCount") (len .Site.RegularPages) }}</p>
-    <div class="archive animated fadeInDown">
+    <section class="archive animated fadeInDown">
+      <p class="post-title">{{ i18n "Archive" }}</p>
       <ul class="list-with-title">
         {{ $pages := where .Site.RegularPages "Type" "post" }}
         {{ range ($pages.GroupByDate "2006") }}
         <li class="listing-title">
           <h4 class="ar-year">{{ .Key }}</h4>
-          <ul class="listing">
+          <ul class="listing archive-post-list">
             {{ range .Pages }}
             <li class="listing-item">
               <div class="listing-post">
@@ -31,9 +31,7 @@
         </li>
         {{ end }}
       </ul>
-    </div>
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
-    {{ partial "pagination.html" $paginator }}
+    </section>
   </div>
 </div>
 {{ end }}

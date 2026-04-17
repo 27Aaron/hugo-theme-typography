@@ -16,6 +16,12 @@
   padding-left: 0;
 }
 
+.archive {
+  .post-title {
+    margin-top: 0;
+  }
+}
+
 .archive ul {
   list-style-type: none;
 }
@@ -27,6 +33,12 @@
 .listing {
   list-style: none;
   padding-left: 0;
+}
+
+.archive-post-list,
+.taxonomy-list,
+.taxonomy-post-list {
+  padding-left: 24px;
 }
 
 .listing-item {
@@ -43,6 +55,32 @@
     .post-time {
       flex-shrink: 0;
       margin-left: 20px;
+    }
+  }
+}
+
+.taxonomy-list-page {
+  .listing-item + .listing-item {
+    margin-top: 16px;
+  }
+}
+
+.taxonomy-term-page {
+  .taxonomy-post-list {
+    padding-top: 12px;
+  }
+
+  .listing-item + .listing-item {
+    margin-top: 16px;
+  }
+
+  .listing-post {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+
+    .post-time {
+      margin-left: 0;
     }
   }
 }

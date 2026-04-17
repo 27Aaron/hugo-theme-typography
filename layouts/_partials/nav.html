@@ -1,5 +1,5 @@
 <div id="site-nav" class="site-title-links">
-  <ul>
+  <ul class="site-nav-pages">
     <li>
       {{ if .IsHome }}
       <a class="current" href="{{ .Site.BaseURL }}">{{ i18n "Home" }}</a>
@@ -8,7 +8,7 @@
       {{ end }}
     </li>
     <li>
-      {{ if eq .Kind "section" }}
+      {{ if eq .Section "post" }}
       <a class="current" href="{{ "post" | relURL }}">{{ i18n "Archive" }}</a>
       {{ else }}
       <a href="{{ "post" | relURL }}">{{ i18n "Archive" }}</a>
@@ -16,12 +16,20 @@
     </li>
     {{ if .Site.Taxonomies.categories }}
     <li>
+      {{ if and (or (eq .Kind "taxonomy") (eq .Kind "term")) (eq .Data.Plural "categories") }}
+      <a class="current" href="{{ "categories" | relURL }}">{{ i18n "Categories" }}</a>
+      {{ else }}
       <a href="{{ "categories" | relURL }}">{{ i18n "Categories" }}</a>
+      {{ end }}
     </li>
     {{ end }}
     {{ if .Site.Taxonomies.tags }}
     <li>
+      {{ if and (or (eq .Kind "taxonomy") (eq .Kind "term")) (eq .Data.Plural "tags") }}
+      <a class="current" href="{{ "tags" | relURL }}">{{ i18n "Tags" }}</a>
+      {{ else }}
       <a href="{{ "tags" | relURL }}">{{ i18n "Tags" }}</a>
+      {{ end }}
     </li>
     {{ end }}
     {{ range where .Site.Pages "Kind" "page" }}
@@ -31,38 +39,44 @@
     </li>
       {{ end }}
     {{ end }}
-    <li class="soc">
-      {{ with .Site.Params.social.github }}
-      <a href="https://github.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Github">
-        <i class="fa fa-github"></i>&nbsp;
-      </a>
-      {{ end }}
-      {{ with .Site.Params.social.twitter }}
-      <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-        <i class="fa fa-twitter"></i>&nbsp;
-      </a>
-      {{ end }}
-      {{ with .Site.Params.social.instagram }}
-      <a href="https://www.instagram.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <i class="fa fa-instagram"></i>&nbsp;
-      </a>
-      {{ end }}
-      {{ with .Site.Params.social.weibo }}
-      <a href="http://weibo.com/u/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Sina Weibo">
-        <i class="fa fa-weibo"></i>&nbsp;
-      </a>
-      {{ end }}
-      {{ if .Site.Params.social.rss }}
-      {{ with .OutputFormats.Get "RSS" }}
-      <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="RSS">
-        <i class="fa fa-rss"></i>&nbsp;
-      </a>
-      {{ end }}
-      {{ end }}
-    </li>
   </ul>
-  <div class="visible-lg visible-md visible-sm site-nav-footer">
-    <br class="site-nav-footer-br">
-    {{ partial "footer.html" . }}
-  </div>
+  <ul class="site-nav-social">
+    {{ with .Site.Params.social.github }}
+    <li>
+      <a href="https://github.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Github">
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    {{ end }}
+    {{ with .Site.Params.social.twitter }}
+    <li>
+      <a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    {{ end }}
+    {{ with .Site.Params.social.instagram }}
+    <li>
+      <a href="https://www.instagram.com/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa fa-instagram"></i>
+      </a>
+    </li>
+    {{ end }}
+    {{ with .Site.Params.social.weibo }}
+    <li>
+      <a href="http://weibo.com/u/{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Sina Weibo">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    {{ end }}
+    {{ if .Site.Params.social.rss }}
+    {{ with .OutputFormats.Get "RSS" }}
+    <li>
+      <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="RSS">
+        <i class="fa fa-rss"></i>
+      </a>
+    </li>
+    {{ end }}
+    {{ end }}
+  </ul>
 </div>
