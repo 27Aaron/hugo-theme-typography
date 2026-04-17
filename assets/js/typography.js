@@ -60,9 +60,13 @@
     if (!stage || !sideBar || !mainContainer) return;
 
     if (window.innerWidth <= 768 || window.innerHeight <= 600) {
-      sideBar.style.width = '100%';
+      sideBar.style.width = stage.offsetWidth + 'px';
+      mainContainer.classList.remove('col-sm-9');
     } else {
-      sideBar.style.width = '';
+      var sidebarW =
+        stage.offsetWidth - mainContainer.offsetWidth + (window.innerWidth - stage.clientWidth) / 2;
+      sideBar.style.width = sidebarW + 'px';
+      mainContainer.classList.add('col-sm-9');
     }
   }
 

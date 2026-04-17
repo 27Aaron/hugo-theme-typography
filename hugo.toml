@@ -1,6 +1,6 @@
 [params]
-  titlePrimary = "Typography"
-  titleSecondary = "A minimal blog"
+  titlePrimary = "活版印字"
+  titleSecondary = "Typography"
   themeStyle = "auto"
   pageSize = 5
   showPageCount = true

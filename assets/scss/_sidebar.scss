@@ -9,21 +9,27 @@
 
 .side-container {
   height: 100vh;
-  width: 180px;
-  position: sticky;
-  top: 0;
-  display: block;
+  position: fixed;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-style: normal;
   font-size: 1em;
   margin: 0;
   transform: rotate(0deg);
   text-align: left;
-  float: none;
-  padding: 50px 0 0;
+  float: right;
+  padding: 80px 20px 30px;
 }
 
 .side-header {
-  display: block;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .site-title {
@@ -32,15 +38,15 @@
   font-style: normal;
   width: auto;
   height: auto;
-  margin: 0;
+  margin: 0 0 0 -2px;
   text-align: left;
-  font-size: 2rem;
-  padding: 0 0 25px 0;
+  font-size: 0.5em;
+  padding: 0 0 50px 0;
   border-left: solid var(--foreground-color) 2px;
   transition: padding 0.8s ease 0s, background 0.8s ease 0s;
 
   &:hover {
-    padding: 5px 0 20px 0;
+    padding: 15px 0 35px 0;
     color: var(--link-hover-color) !important;
     background: var(--link-hover-bg) !important;
     border-left: solid var(--foreground-color) 2px;
@@ -79,11 +85,15 @@
 
 .site-title-small {
   font-size: 30px;
-  padding-top: 1rem;
+  padding-top: $verticalSecondaryPaddingTopPatch;
 }
 
 .site-title-links {
-  margin-top: 30px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   font-weight: bold;
   font-style: normal;
   text-align: left;
@@ -105,30 +115,27 @@
   }
 }
 
-.site-nav-pages {
-  width: 6rem;
-  columns: 2;
-  column-gap: 5px;
-}
-
 .site-nav-pages li + li {
-  margin-top: 0;
+  margin-top: 6px;
 }
 
 .site-nav-social {
-  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 
   li {
-    display: inline-block !important;
+    display: inline-flex !important;
     margin: 0;
   }
 
   a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-bottom: none;
     font-size: 24px;
     line-height: 1;
-    padding-right: 5px;
   }
 
   a:hover,
@@ -138,9 +145,8 @@
 }
 
 .side-footer {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 20px;
+  flex-shrink: 0;
+  margin-top: 30px;
 }
 
 .site-bottom-footer {
