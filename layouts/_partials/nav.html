@@ -70,7 +70,7 @@
     </li>
     {{ end }}
     {{ if .Site.Params.social.rss }}
-    {{ with .OutputFormats.Get "RSS" }}
+    {{ with site.Home.OutputFormats.Get "RSS" }}
     <li>
       <a href="{{ .RelPermalink }}" target="_blank" rel="noopener noreferrer" aria-label="RSS">
         <i class="fa fa-rss"></i>
