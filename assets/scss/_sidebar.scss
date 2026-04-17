@@ -68,6 +68,14 @@
     margin-right: 0;
     font-family: $titleFontList;
   }
+
+  a:focus,
+  a:active,
+  h1:focus,
+  h3:focus {
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 .site-title-large {
