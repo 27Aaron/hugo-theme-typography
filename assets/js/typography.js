@@ -175,6 +175,22 @@
     return true;
   }
 
+  function renderMath() {
+    if (typeof renderMathInElement === 'function') {
+      var main = document.getElementById('main-container');
+      if (main) {
+        renderMathInElement(main, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true },
+          ],
+        });
+      }
+    }
+  }
+
   function swapMainContent(doc, url, pushState) {
     var nextMain = doc.getElementById('main-container');
     var currentMain = document.getElementById('main-container');
@@ -194,6 +210,7 @@
     bindThemeToggle();
     updateThemeToggle(document.documentElement.getAttribute('data-theme') || getPreferredTheme());
     window.scrollTo({ top: 0, behavior: 'auto' });
+    renderMath();
 
     if (pushState) {
       window.history.pushState({ url: url }, '', url);
@@ -234,7 +251,20 @@
 
     document.addEventListener('click', function (event) {
       var link = event.target.closest('a');
-      if (!shouldHandleLink(link, event)) return;
+      if (!shouldHandleLink(link, event)) {
+        if (link) {
+          var href = link.getAttribute('href');
+          if (href && href.charAt(0) === '#') {
+            event.preventDefault();
+            var target = document.getElementById(href.substring(1));
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+              history.pushState(null, '', href);
+            }
+          }
+        }
+        return;
+      }
 
       event.preventDefault();
       navigate(link.href, true);
