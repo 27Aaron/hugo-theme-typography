@@ -160,7 +160,8 @@
 
   .highlight[class*="language-"]::before,
   .chroma[class*="language-"]::before,
-  pre[class*="language-"]::before {
+  pre[class*="language-"]::before,
+  code[class*="language-"]::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -173,28 +174,60 @@
     font-weight: 600;
   }
 
-  .language-html::before { content: "HTML"; }
-  .language-js::before,
-  .language-javascript::before { content: "JS"; }
   .language-bash::before,
   .language-shell::before,
-  .language-sh::before { content: "BASH"; }
-  .language-css::before { content: "CSS"; }
-  .language-scss::before { content: "SCSS"; }
-  .language-diff::before { content: "DIFF"; }
-  .language-java::before { content: "JAVA"; }
-  .language-xml::before,
-  .language-svg::before { content: "XML"; }
-  .language-python::before,
-  .language-py::before { content: "PYTHON"; }
-  .language-json::before { content: "JSON"; }
-  .language-swift::before { content: "SWIFT"; }
-  .language-ruby::before { content: "RUBY"; }
-  .language-perl::before { content: "PERL"; }
-  .language-php::before { content: "PHP"; }
+  .language-sh::before,
+  .language-zsh::before { content: "BASH"; }
   .language-c::before { content: "C"; }
+  .language-clojure::before { content: "CLOJURE"; }
   .language-cpp::before,
   .language-c\+\+::before { content: "C++"; }
+  .language-cs::before,
+  .language-csharp::before { content: "C#"; }
+  .language-css::before { content: "CSS"; }
+  .language-dart::before { content: "DART"; }
+  .language-diff::before { content: "DIFF"; }
+  .language-dockerfile::before { content: "DOCKER"; }
+  .language-elixir::before { content: "ELIXIR"; }
+  .language-erlang::before { content: "ERLANG"; }
+  .language-go::before { content: "GO"; }
+  .language-haskell::before { content: "HASKELL"; }
+  .language-html::before { content: "HTML"; }
+  .language-java::before { content: "JAVA"; }
+  .language-js::before,
+  .language-javascript::before { content: "JS"; }
+  .language-json::before { content: "JSON"; }
+  .language-kotlin::before { content: "KOTLIN"; }
+  .language-less::before { content: "LESS"; }
+  .language-lua::before { content: "LUA"; }
+  .language-makefile::before { content: "MAKE"; }
+  .language-markdown::before,
+  .language-md::before { content: "MD"; }
+  .language-nix::before { content: "NIX"; }
+  .language-objc::before,
+  .language-objectivec::before { content: "OBJ-C"; }
+  .language-perl::before { content: "PERL"; }
+  .language-php::before { content: "PHP"; }
+  .language-python::before,
+  .language-py::before { content: "PYTHON"; }
+  .language-r::before { content: "R"; }
+  .language-ruby::before { content: "RUBY"; }
+  .language-rust::before { content: "RUST"; }
+  .language-sass::before { content: "SASS"; }
+  .language-scala::before { content: "SCALA"; }
+  .language-scss::before { content: "SCSS"; }
+  .language-sql::before { content: "SQL"; }
+  .language-swift::before { content: "SWIFT"; }
+  .language-tex::before,
+  .language-latex::before { content: "LATEX"; }
+  .language-toml::before { content: "TOML"; }
+  .language-ts::before,
+  .language-typescript::before { content: "TS"; }
+  .language-vim::before { content: "VIM"; }
+  .language-xml::before,
+  .language-svg::before { content: "XML"; }
+  .language-yaml::before,
+  .language-yml::before { content: "YAML"; }
 
   table {
     width: 100%;

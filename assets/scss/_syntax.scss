@@ -13,7 +13,7 @@ pre {
 // Hugo Chroma syntax highlighting
 .chroma {
   color: var(--foreground-color);
-  background: var(--panel-color-soft);
+  background: var(--panel-color);
 
   .kt, .kc, .kd, .kn, .k { color: var(--syntax-keyword) !important; }
   .nf, .fm { color: var(--syntax-function) !important; }
@@ -49,6 +49,68 @@ figure {
       border-left: solid rgba(0, 0, 0, 0.05) 1px;
       margin-right: 1px;
     }
+  }
+}
+
+// Hugo Chroma line numbers (table mode)
+.chroma {
+  .lntable {
+    display: table;
+    width: 100%;
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: auto;
+
+    .lntd {
+      vertical-align: top;
+      padding: 0;
+      margin: 0;
+      border: 0;
+
+      &:first-child {
+        width: 1%;
+        white-space: nowrap;
+
+        pre {
+          background-color: transparent !important;
+          margin: 0;
+          padding: 18px 0;
+          text-align: right;
+
+          .lnt,
+          .ln {
+            color: var(--gutter-text);
+            display: block;
+            padding: 0 0.8em 0 1em;
+            white-space: pre;
+            user-select: none;
+          }
+        }
+      }
+
+      &:last-child {
+        width: 99%;
+
+        pre {
+          background-color: transparent !important;
+          border-left: 1px solid var(--gutter-border);
+          border-radius: 0;
+          margin: 0;
+          padding: 18px 1em;
+        }
+      }
+    }
+  }
+
+  &.lntable {
+    background: transparent !important;
+  }
+
+  // Space for language label when table mode is active
+  table.lntable {
+    margin-top: 0;
   }
 }
 

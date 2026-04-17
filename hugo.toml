@@ -15,6 +15,13 @@
     weibo = ""
     rss = true
 
+[markup]
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "monokai"
+
 [module]
   [module.hugoVersion]
     extended = true
