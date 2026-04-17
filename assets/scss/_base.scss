@@ -86,6 +86,17 @@ html {
   background: var(--background-color);
 }
 
+a,
+button,
+input,
+textarea,
+select,
+[tabindex] {
+  &:focus {
+    outline: none;
+  }
+}
+
 .foreground {
   background: var(--foreground-color) !important;
 }
