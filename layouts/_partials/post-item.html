@@ -32,10 +32,10 @@
       {{ end }}
     </span>
     {{ end }}
-    {{ end }}
+  {{ end }}
   </p>
   {{ if .detail }}
-  <div class="post-abstract">{{ .page.Content }}</div>
+  <div class="post-content">{{ .page.Content }}</div>
   {{ else }}
   <p class="post-abstract">{{ or .page.Description (.page.Summary | plainify) }}</p>
   {{ end }}
