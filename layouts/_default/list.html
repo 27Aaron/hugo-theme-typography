@@ -7,7 +7,7 @@
 {{ define "main" }}
 <div class="autopagerize_page_element">
   <div class="content">
-    <p class="post-title">{{ i18n "Archive" }} {{ i18n "ArchiveCount" (len .Site.RegularPages) }}</p>
+    <p class="post-title">{{ i18n "Archive" }} {{ printf (i18n "ArchiveCount") (len .Site.RegularPages) }}</p>
     <div class="archive animated fadeInDown">
       <ul class="list-with-title">
         {{ $pages := where .Site.RegularPages "Type" "post" }}

@@ -25,9 +25,11 @@
     </li>
     {{ end }}
     {{ range where .Site.Pages "Kind" "page" }}
+      {{ if .Parent.IsHome }}
     <li>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </li>
+      {{ end }}
     {{ end }}
     <li class="soc">
       {{ with .Site.Params.social.github }}
