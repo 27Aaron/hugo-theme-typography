@@ -2,6 +2,7 @@
   titlePrimary = "Typography"
   titleSecondary = "A minimal blog"
   themeStyle = "light"
+  pageSize = 5
   showPageCount = true
   showCategories = true
   showTags = true

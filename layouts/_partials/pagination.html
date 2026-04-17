@@ -3,9 +3,9 @@
 {{ if or $paginator.HasPrev $paginator.HasNext }}
 <div class="pagination no-margin-bottom">
   <p class="clearfix">
-    {{ if $paginator.Site.Params.showPageCount }}
+    {{ if site.Params.showPageCount }}
     <p>
-      {{ i18n "PageNumber" $paginator.PageNumber }} / {{ i18n "PageCount" $paginator.TotalPages }}
+      {{ printf (i18n "PageNumber") $paginator.PageNumber }} / {{ printf (i18n "PageCount") $paginator.TotalPages }}
       &nbsp;
     </p>
     {{ end }}

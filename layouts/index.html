@@ -1,7 +1,8 @@
 {{ define "main" }}
 <div class="autopagerize_page_element">
   <div class="content">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+    {{ $pageSize := .Site.Params.pageSize | default 5 }}
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") $pageSize }}
     {{ range $paginator.Pages }}
     {{ partial "post-item.html" (dict "page" . "detail" false) }}
     {{ end }}
