@@ -1,4 +1,14 @@
 @media (max-width: $mobileBreakpoint) {
+  #stage,
+  .row {
+    min-height: 100vh;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
   body {
     line-height: normal;
   }
@@ -52,6 +62,7 @@
   }
 
   .main-container {
+    flex: 1 0 auto;
     text-align: left;
     height: auto;
     margin: 0;
@@ -152,7 +163,11 @@
   .post-meta { font-size: 14px; }
   .post-abstract { font-size: 16px; }
 
-  .site-bottom-footer { display: block !important; }
+  .site-bottom-footer {
+    display: block !important;
+    margin-top: auto;
+    width: 100%;
+  }
 }
 
 @media only screen and (max-height: $heightBreakpoint1) {
@@ -178,6 +193,16 @@
 }
 
 @media only screen and (max-height: $heightBreakpoint2) {
+  #stage,
+  .row {
+    min-height: 100vh;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
   body { line-height: normal; }
 
   h1 { font-size: 40px; }
@@ -227,6 +252,7 @@
   }
 
   .main-container {
+    flex: 1 0 auto;
     text-align: left;
     height: auto;
     margin: 0;
