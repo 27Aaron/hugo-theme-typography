@@ -16,8 +16,6 @@
   translation: "Previous post"
 - id: "next_post"
   translation: "Next post"
-- id: "share"
-  translation: "Share"
 - id: "posted_at"
   translation: "Posted at"
 - id: "Comments"

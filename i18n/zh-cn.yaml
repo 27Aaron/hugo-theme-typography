@@ -16,8 +16,6 @@
   translation: "上一篇"
 - id: "next_post"
   translation: "下一篇"
-- id: "share"
-  translation: "分享到"
 - id: "posted_at"
   translation: "发布于"
 - id: "Comments"

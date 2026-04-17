@@ -14,15 +14,7 @@
   <div class="content">
     <div class="post-page">
       {{ partial "post-item.html" (dict "page" . "detail" true) }}
-      {{ if eq .Type "post" }}
-      <div class="share">
-        <span>{{ i18n "share" }}</span>&nbsp;
-        <span class="soc">
-          <a class="fa fa-twitter" href="https://twitter.com/home?status={{ .Site.BaseURL }}{{ .RelPermalink }}%20{{ .Site.Title }}%20{{ .Title }}" target="_blank" rel="noopener noreferrer"></a>
-        </span>
-      </div>
-      {{ end }}
-      {{ if eq .Type "post" }}
+{{ if eq .Type "post" }}
       <div class="pagination">
         <p class="clearfix">
           {{ with .PrevInSection }}

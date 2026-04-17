@@ -16,8 +16,6 @@
   translation: "Предыдущий пост"
 - id: "next_post"
   translation: "Следующий пост"
-- id: "share"
-  translation: "Поделиться"
 - id: "posted_at"
   translation: "Опубликовано"
 - id: "Comments"

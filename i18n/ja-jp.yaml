@@ -16,8 +16,6 @@
   translation: "前の記事"
 - id: "next_post"
   translation: "次の記事"
-- id: "share"
-  translation: "共有"
 - id: "posted_at"
   translation: "投稿日"
 - id: "Comments"
