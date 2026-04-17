@@ -37,6 +37,6 @@
   {{ if .detail }}
   <div class="post-abstract">{{ .page.Content }}</div>
   {{ else }}
-  <p class="post-abstract">{{ .page.Summary }}</p>
+  <p class="post-abstract">{{ or .page.Description (.page.Summary | plainify) }}</p>
   {{ end }}
 </div>
