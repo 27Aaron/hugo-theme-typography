@@ -113,7 +113,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 24px;
   font-weight: bold;
   font-style: normal;
   text-align: left;
@@ -140,20 +140,23 @@
 }
 
 .site-nav-social {
-  margin-top: 8px;
+  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px;
 
   li {
     display: inline-flex !important;
     margin: 0;
   }
 
-  a {
+  a,
+  .theme-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 28px;
+    height: 28px;
     border-bottom: none !important;
     font-size: 24px;
     line-height: 1;
@@ -163,7 +166,9 @@
   }
 
   a:hover,
-  a:focus {
+  a:focus,
+  .theme-toggle:hover,
+  .theme-toggle:focus {
     border-bottom: none !important;
     color: var(--link-hover-color);
     background-color: var(--link-hover-bg);
