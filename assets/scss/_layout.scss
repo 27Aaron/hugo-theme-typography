@@ -1,13 +1,18 @@
 .row {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row-reverse;
 }
 
 .main-container {
+  width: 640px;
   text-align: left;
-  margin: 0;
-  padding: 80px 40px;
+  margin: 60px 80px 20px 0;
+  padding: 0 0 0 20px;
   overflow: hidden;
-  float: left;
+  float: none;
 
   :nth-child(1) {
     margin-top: 0;
@@ -20,9 +25,9 @@
 .no-margin-bottom { margin-bottom: 0; }
 
 a {
-  color: $foregroundColor;
+  color: var(--foreground-color);
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
-  border-bottom: solid $foregroundColor 2px;
+  border-bottom: solid var(--foreground-color) 2px;
   padding: 0;
   cursor: pointer;
 
@@ -32,13 +37,13 @@ a {
   }
 
   &:hover {
-    color: $backgroundColor !important;
-    background-color: $foregroundColor;
+    color: var(--link-hover-color) !important;
+    background-color: var(--link-hover-bg);
     border-bottom: solid transparent 2px;
   }
 
   &:focus {
-    color: darken($foregroundColor, 30%);
+    color: var(--link-focus-color);
   }
 }
 
@@ -54,19 +59,19 @@ a {
 }
 
 .current {
-  border-bottom: solid $foregroundColor 3px !important;
+  border-bottom: solid var(--foreground-color) 3px !important;
 }
 
 .a-mute {
   background-color: transparent;
-  color: $foregroundColor !important;
+  color: var(--foreground-color) !important;
   text-decoration: none;
   border-bottom: none;
 
   &:hover,
   &:focus {
     background-color: transparent;
-    color: $foregroundColor !important;
+    color: var(--foreground-color) !important;
     text-decoration: none;
     border-bottom: none;
   }
@@ -80,24 +85,41 @@ a {
     border-bottom: solid transparent 2px;
 
     &:hover {
-      @if lightness($foregroundColor) > 50 {
-        color: darken($foregroundColor, 10%) !important;
-      } @else {
-        color: lighten($foregroundColor, 10%) !important;
-      }
+      color: var(--foreground-color-strong) !important;
       background-color: transparent !important;
       text-decoration: none;
       border-bottom: solid rgba(0, 0, 0, 0) 2px;
     }
 
     &:focus {
-      @if lightness($foregroundColor) > 50 {
-        color: darken($foregroundColor, 10%) !important;
-      } @else {
-        color: lighten($foregroundColor, 10%) !important;
-      }
+      color: var(--foreground-color-strong) !important;
     }
   }
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--foreground-color);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+
+  &:hover,
+  &:focus {
+    color: var(--foreground-color-muted);
+    background: transparent;
+    outline: none;
+  }
+}
+
+.theme-toggle .fa {
+  font-size: 24px;
+  line-height: 1;
 }
 
 .meta-item {

@@ -9,27 +9,21 @@
 
 .side-container {
   height: 100vh;
-  position: fixed;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  width: 180px;
+  position: sticky;
+  top: 0;
+  display: block;
   font-style: normal;
   font-size: 1em;
   margin: 0;
   transform: rotate(0deg);
   text-align: left;
-  float: right;
-  padding: 80px 20px 30px;
+  float: none;
+  padding: 50px 0 0;
 }
 
 .side-header {
-  display: flex;
-  flex: 1 1 auto;
-  min-height: 0;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: block;
 }
 
 .site-title {
@@ -38,21 +32,21 @@
   font-style: normal;
   width: auto;
   height: auto;
-  margin: 0 0 0 -2px;
+  margin: 0;
   text-align: left;
-  font-size: 0.5em;
-  padding: 0 0 50px 0;
-  border-left: solid $foregroundColor 2px;
+  font-size: 2rem;
+  padding: 0 0 25px 0;
+  border-left: solid var(--foreground-color) 2px;
   transition: padding 0.8s ease 0s, background 0.8s ease 0s;
 
   &:hover {
-    padding: 15px 0 35px 0;
-    color: $backgroundColor !important;
-    background: $foregroundColor !important;
-    border-left: solid $foregroundColor 2px;
+    padding: 5px 0 20px 0;
+    color: var(--link-hover-color) !important;
+    background: var(--link-hover-bg) !important;
+    border-left: solid var(--foreground-color) 2px;
 
     * {
-      color: $backgroundColor !important;
+      color: var(--link-hover-color) !important;
     }
   }
 
@@ -85,15 +79,11 @@
 
 .site-title-small {
   font-size: 30px;
-  padding-top: $verticalSecondaryPaddingTopPatch;
+  padding-top: 1rem;
 }
 
 .site-title-links {
-  margin-top: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  margin-top: 30px;
   font-weight: bold;
   font-style: normal;
   text-align: left;
@@ -111,31 +101,34 @@
   }
 
   a {
-    border-bottom: solid $foregroundColor 2px;
+    border-bottom: solid var(--foreground-color) 2px;
   }
 }
 
+.site-nav-pages {
+  width: 6rem;
+  columns: 2;
+  column-gap: 5px;
+}
+
 .site-nav-pages li + li {
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .site-nav-social {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  margin-top: 0;
 
   li {
-    display: inline-flex !important;
+    display: inline-block !important;
     margin: 0;
   }
 
   a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     border-bottom: none;
     font-size: 24px;
     line-height: 1;
+    padding-right: 5px;
   }
 
   a:hover,
@@ -145,8 +138,9 @@
 }
 
 .side-footer {
-  flex-shrink: 0;
-  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
 }
 
 .site-bottom-footer {

@@ -1,7 +1,7 @@
 [params]
   titlePrimary = "Typography"
   titleSecondary = "A minimal blog"
-  themeStyle = "light"
+  themeStyle = "auto"
   pageSize = 5
   showPageCount = true
   showCategories = true

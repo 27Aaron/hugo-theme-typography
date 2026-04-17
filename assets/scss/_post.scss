@@ -6,6 +6,7 @@
 .post-title {
   font-size: 24px;
   font-weight: bold;
+  max-width: 50rem;
   margin: 3px 0;
 }
 
@@ -25,6 +26,216 @@
 .post-content {
   font-size: 18px;
   overflow: visible;
+  line-height: 1.75;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.35;
+    margin: 1.9em 0 0.9em;
+    font-family: $fontList;
+    font-weight: 600;
+    color: var(--foreground-color);
+  }
+
+  p,
+  ul,
+  ol,
+  dl,
+  table,
+  blockquote,
+  pre,
+  .highlight,
+  .chroma {
+    margin: 1.1em 0;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5em;
+  }
+
+  li > p {
+    margin-bottom: 0;
+  }
+
+  a {
+    word-break: break-word;
+    transition: all 0.3s ease;
+    margin: auto 4px;
+    padding: 2px 0;
+    border-bottom: none;
+    background-color: initial;
+    color: var(--foreground-color) !important;
+    text-decoration: none !important;
+    box-shadow: 0 -2px var(--accent-color) inset;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background: transparent;
+      color: var(--foreground-color) !important;
+    }
+
+    &:hover {
+      box-shadow: 0 -8.8px var(--accent-color) inset;
+    }
+  }
+
+  blockquote {
+    box-sizing: border-box;
+    margin: 1.6em 0 1.6em -1.1em;
+    padding: 0.5em 1em;
+    border-left: 0.25rem solid #e8c0c0;
+    color: inherit;
+
+    p {
+      margin: 0.8em 0;
+    }
+
+    > * {
+      opacity: 0.7;
+    }
+
+    small {
+      display: inline-block;
+      margin: 0.8em 0 0.8em 1.5em;
+      font-size: 0.9em;
+      color: var(--foreground-color-muted);
+
+      &:before {
+        content: '\2014 \00A0';
+      }
+    }
+  }
+
+  code,
+  tt {
+    margin: 0;
+    padding: 0.08em 0.38em;
+    border: 1px solid var(--line-color);
+    border-radius: 0.3em;
+    background: var(--panel-color-strong);
+    color: var(--code-color);
+    font-family: $monoFontList;
+    font-size: 0.875em;
+    font-weight: 600;
+    white-space: pre-wrap;
+  }
+
+  pre {
+    background-color: var(--panel-color) !important;
+    border: 0.1rem solid var(--panel-color) !important;
+    border-radius: 0.3em;
+    margin-bottom: 20px;
+    font-size: 13px !important;
+    position: relative;
+
+    code {
+      padding: 0;
+      border: none;
+      background: transparent;
+      font-size: inherit;
+      font-weight: 400;
+      color: inherit;
+      white-space: pre;
+    }
+  }
+
+  .highlight,
+  .chroma {
+    position: relative;
+  }
+
+  .highlight[class*="language-"]::before,
+  .chroma[class*="language-"]::before,
+  pre[class*="language-"]::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--foreground-color-muted);
+    text-align: right;
+    font-size: 0.75em;
+    padding: 5px 10px 0;
+    line-height: 15px;
+    height: 15px;
+    font-weight: 600;
+  }
+
+  .language-html::before { content: "HTML"; }
+  .language-js::before,
+  .language-javascript::before { content: "JS"; }
+  .language-bash::before,
+  .language-shell::before,
+  .language-sh::before { content: "BASH"; }
+  .language-css::before { content: "CSS"; }
+  .language-scss::before { content: "SCSS"; }
+  .language-diff::before { content: "DIFF"; }
+  .language-java::before { content: "JAVA"; }
+  .language-xml::before,
+  .language-svg::before { content: "XML"; }
+  .language-python::before,
+  .language-py::before { content: "PYTHON"; }
+  .language-json::before { content: "JSON"; }
+  .language-swift::before { content: "SWIFT"; }
+  .language-ruby::before { content: "RUBY"; }
+  .language-perl::before { content: "PERL"; }
+  .language-php::before { content: "PHP"; }
+  .language-c::before { content: "C"; }
+  .language-cpp::before,
+  .language-c\+\+::before { content: "C++"; }
+
+  table {
+    width: 100%;
+    margin: 30px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-top: 1px solid var(--table-border-color);
+    border-left: 1px solid var(--table-border-color);
+  }
+
+  td,
+  th {
+    padding: 8px 12px;
+    border: 1px solid var(--table-border-color);
+    border-top: none;
+    border-left: none;
+  }
+
+  th[align="center"] {
+    text-align: center;
+  }
+
+  th[align="right"] {
+    text-align: right;
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid var(--hr-color);
+    margin: 3.2em 0;
+    padding: 0;
+  }
+
+  .toc {
+    border: 1px solid var(--line-color);
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    background: var(--panel-color-soft);
+  }
 }
 
 .share {

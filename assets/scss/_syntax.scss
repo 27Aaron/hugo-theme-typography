@@ -6,25 +6,30 @@
 
 pre {
   font-size: 0.8em !important;
-  background-color: #f8f8f8 !important;
+  background-color: var(--panel-color) !important;
   font-family: $monoFontList !important;
 }
 
 // Hugo Chroma syntax highlighting
 .chroma {
-  .kt, .kc, .kd, .kn { color: #e96900 !important; }
-  .nf, .nb { color: #0092db !important; }
-  .m, .mf, .mb, .mh { color: #ae81ff !important; }
-  .s, .s1, .s2, .se { color: #42b983 !important; }
-  .c, .c1, .cm { color: #b3b3b3 !important; }
-  .k { color: #e96900 !important; }
-  .n, .na { color: #2973b7 !important; }
-  .nt { color: #2973b7 !important; }
+  color: var(--foreground-color);
+  background: var(--panel-color-soft);
+
+  .kt, .kc, .kd, .kn, .k { color: var(--syntax-keyword) !important; }
+  .nf, .fm { color: var(--syntax-function) !important; }
+  .nb, .bp { color: var(--syntax-builtin) !important; }
+  .m, .mf, .mb, .mh, .mi, .il { color: var(--syntax-number) !important; }
+  .s, .s1, .s2, .se, .sa, .sb, .sc, .dl { color: var(--syntax-string) !important; }
+  .c, .c1, .cm, .ch, .cs { color: var(--syntax-comment) !important; font-style: italic; }
+  .n, .na, .nt, .nc, .nn { color: var(--syntax-class) !important; }
+  .no, .nv, .vc, .vg, .vi { color: var(--syntax-constant) !important; }
+  .o, .ow, .p { color: var(--syntax-punctuation) !important; }
+  .l, .ld { color: var(--syntax-literal) !important; }
   .gi { color: #42b983 !important; }
-  .gd { color: #BA4545 !important; }
-  .gh { color: #83B917 !important; }
-  .go { color: #555 !important; }
-  .err { color: #a61717 !important; }
+  .gd { color: var(--syntax-deleted) !important; }
+  .gh { color: var(--syntax-function) !important; }
+  .go { color: var(--foreground-color-muted) !important; }
+  .err { color: var(--syntax-deleted) !important; }
 }
 
 figure {
@@ -77,7 +82,7 @@ blockquote {
   box-sizing: border-box;
   margin: 1.6em 0 1.6em -2.2em;
   padding: 0 0 0 1.6em;
-  border-left: #4a4a4a 0.4em solid;
+  border-left: var(--quote-border-color) 0.4em solid;
 
   p { margin: 0.8em 0; }
 
@@ -96,9 +101,9 @@ code, tt {
   font-family: $monoFontList;
   font-size: 0.85em;
   white-space: pre-wrap;
-  border: 1px solid #E3EDF3;
-  background: #f7f7f9;
-  color: #d14;
+  border: 1px solid var(--line-color);
+  background: var(--panel-color-strong);
+  color: var(--code-color);
   border-radius: 2px;
 }
 
@@ -107,12 +112,14 @@ hr {
   height: 1px;
   border: 0;
   border-top: 1px solid #efefef;
+  border-top-color: var(--hr-color);
   margin: 3.2em 0;
   padding: 0;
 }
 
 .toc {
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--line-color);
   margin-bottom: 20px;
   padding: 10px 30px;
+  background: var(--panel-color-soft);
 }

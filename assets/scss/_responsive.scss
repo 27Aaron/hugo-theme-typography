@@ -1,6 +1,12 @@
 @media (max-width: $mobileBreakpoint) {
   body {
+    font-size: 15px;
     line-height: normal;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
   }
 
   h1 { font-size: 40px; }
@@ -36,27 +42,31 @@
     }
 
     &:hover {
-      color: $foregroundColor !important;
+      color: var(--foreground-color) !important;
       background: transparent !important;
       padding: 0;
       border: none;
 
       * {
-        color: $foregroundColor !important;
+        color: var(--foreground-color) !important;
         background: transparent !important;
       }
     }
   }
 
   .main-container {
+    order: 1;
+    width: 100%;
     text-align: left;
     height: auto;
     margin: 0;
-    padding: 20px 30px;
+    padding: 0 30px;
     overflow: auto;
   }
 
   .side-container {
+    order: 0;
+    width: 100%;
     padding: 40px 30px 0 30px;
     height: auto;
     position: relative;
@@ -72,8 +82,6 @@
     padding: 10px 0;
     margin: 10px 0;
     text-align: center;
-    display: flex;
-    align-items: center;
 
     .site-nav-pages li {
       display: inline;
@@ -82,12 +90,22 @@
     }
   }
 
+  .site-nav-pages {
+    width: 100%;
+    columns: unset;
+    column-gap: unset;
+  }
+
   .site-nav-social {
     justify-content: center;
   }
 
   .side-footer {
     display: none !important;
+  }
+
+  .site-bottom-footer {
+    order: 2;
   }
 
   footer {
@@ -120,13 +138,18 @@
   }
 
   .main-container {
-    padding-top: 40px;
-    padding-bottom: 60px;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
 }
 
 @media only screen and (max-height: $heightBreakpoint2) {
   body { line-height: normal; }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
 
   h1 { font-size: 40px; }
   h2 { font-size: 34px; }
@@ -159,27 +182,31 @@
     }
 
     &:hover {
-      color: $foregroundColor !important;
+      color: var(--foreground-color) !important;
       background: transparent !important;
       padding: 0;
       border: none;
 
       * {
-        color: $foregroundColor !important;
+        color: var(--foreground-color) !important;
         background: transparent !important;
       }
     }
   }
 
   .main-container {
+    order: 1;
+    width: 100%;
     text-align: left;
     height: auto;
     margin: 0;
-    padding: 20px 30px;
+    padding: 0 30px;
     overflow: auto;
   }
 
   .side-container {
+    order: 0;
+    width: 100%;
     padding: 40px 30px 0 30px;
     height: auto;
     position: relative;
@@ -195,8 +222,6 @@
     padding: 10px 0;
     margin: 10px 0;
     text-align: center;
-    display: flex;
-    align-items: center;
 
     .site-nav-pages li {
       display: inline;
@@ -205,12 +230,22 @@
     }
   }
 
+  .site-nav-pages {
+    width: 100%;
+    columns: unset;
+    column-gap: unset;
+  }
+
   .site-nav-social {
     justify-content: center;
   }
 
   .side-footer {
     display: none !important;
+  }
+
+  .site-bottom-footer {
+    order: 2;
   }
 
   footer {

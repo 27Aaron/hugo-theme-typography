@@ -19,18 +19,37 @@
   <meta content="telephone=no" name="format-detection">
   <meta name="renderer" content="webkit">
 
+  <script>
+    (function () {
+      var key = 'theme';
+      var defaultTheme = '{{ if or (eq .Site.Params.themeStyle "light") (eq .Site.Params.themeStyle "dark") }}{{ .Site.Params.themeStyle }}{{ else }}auto{{ end }}';
+      var theme = defaultTheme;
+
+      try {
+        var saved = window.localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') {
+          theme = saved;
+        } else if (theme === 'auto') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+      } catch (error) {
+        theme = defaultTheme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : defaultTheme;
+      }
+
+      if (theme === 'auto') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      document.documentElement.dataset.defaultTheme = defaultTheme;
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <link rel="short icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
 
-  {{ if eq .Site.Params.themeStyle "dark" }}
-  {{ with resources.Get "scss/style-dark.scss" }}
-  {{ $style := . | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ end }}
-  {{ else }}
   {{ with resources.Get "scss/style.scss" }}
   {{ $style := . | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ end }}
   {{ end }}
 
   {{ if .Site.Params.social.rss }}

@@ -9,27 +9,97 @@ h4,
 h5,
 h6 {
   font-family: $fontList;
-  color: $foregroundColor;
+  color: var(--foreground-color);
+}
+
+:root {
+  color-scheme: light;
+  --background-color: #f4f4f4;
+  --foreground-color: #2e405b;
+  --foreground-color-strong: #000000;
+  --foreground-color-muted: rgba(63, 88, 125, 0.62);
+  --link-hover-color: #f4f4f4;
+  --link-hover-bg: #2e405b;
+  --link-focus-color: #182235;
+  --line-color: rgba(46, 64, 91, 0.18);
+  --panel-color: #ececec;
+  --panel-color-strong: #e6e4e4;
+  --panel-color-soft: #fbfbfb;
+  --code-color: #000000;
+  --accent-color: #ff4b44;
+  --quote-border-color: #4a4a4a;
+  --quote-text-color: #44556f;
+  --table-border-color: #2e405b;
+  --hr-color: #c2c2c2;
+  --syntax-comment: #a0ada0;
+  --syntax-string: #b56959;
+  --syntax-literal: #2f8a89;
+  --syntax-number: #296aa3;
+  --syntax-keyword: #1c6b48;
+  --syntax-function: #6c7834;
+  --syntax-boolean: #1c6b48;
+  --syntax-constant: #a65e2b;
+  --syntax-deleted: #a14f55;
+  --syntax-class: #2993a3;
+  --syntax-builtin: #ab5959;
+  --syntax-property: #b58451;
+  --syntax-punctuation: #8e8f8b;
+  --bg-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --background-color: #21252b;
+  --foreground-color: rgba(255, 255, 255, 0.86);
+  --foreground-color-strong: #ffffff;
+  --foreground-color-muted: rgba(196, 206, 221, 0.72);
+  --link-hover-color: #21252b;
+  --link-hover-bg: rgba(255, 255, 255, 0.86);
+  --link-focus-color: #ffffff;
+  --line-color: rgba(255, 255, 255, 0.16);
+  --panel-color: #282c34;
+  --panel-color-strong: #363a42;
+  --panel-color-soft: #1e1e1e;
+  --code-color: #ffffff;
+  --accent-color: #ff4b44;
+  --quote-border-color: #9fb1c9;
+  --quote-text-color: rgba(255, 255, 255, 0.78);
+  --table-border-color: rgba(255, 255, 255, 0.72);
+  --hr-color: #575757;
+  --syntax-comment: #758575;
+  --syntax-string: #d48372;
+  --syntax-literal: #429988;
+  --syntax-number: #6394bf;
+  --syntax-keyword: #4d9375;
+  --syntax-function: #a1b567;
+  --syntax-boolean: #4d9375;
+  --syntax-constant: #d08b65;
+  --syntax-deleted: #bd7676;
+  --syntax-class: #54b1bf;
+  --syntax-builtin: #d4976c;
+  --syntax-property: #b98d5a;
+  --syntax-punctuation: #858585;
+  --bg-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi/P//Py8DpQCXISBxJlING4QaGEdDiQgAEGAAg8sST3LGZYoAAAAASUVORK5CYII=");
 }
 
 html {
-  background: $backgroundColor;
+  background: var(--background-color);
 }
 
 .foreground {
-  background: $foregroundColor !important;
+  background: var(--foreground-color) !important;
 }
 
 .background {
-  background: $backgroundColor !important;
+  background: var(--background-color) !important;
 }
 
 .foreground-text * {
-  color: $foregroundColor !important;
+  color: var(--foreground-color) !important;
 }
 
 .background-text * {
-  color: $backgroundColor !important;
+  color: var(--background-color) !important;
 }
 
 h1 { font-size: 42px; }
@@ -40,15 +110,10 @@ h5 { font-size: 18px; }
 h6 { font-size: 14px; }
 
 body {
-  font-size: 18px;
-  line-height: 1.5em;
-
-  @if lightness($backgroundColor) > 50 {
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
-  } @else {
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi/P//Py8DpQCXISBxJlING4QaGEdDiQgAEGAAg8sST3LGZYoAAAAASUVORK5CYII=");
-  }
-
+  font-size: 1em;
+  line-height: 1.75;
+  color: var(--foreground-color);
+  background: var(--bg-image);
   background-repeat: repeat;
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
@@ -71,10 +136,11 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: 2px;
 }
 
 figure {
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 figure > table {

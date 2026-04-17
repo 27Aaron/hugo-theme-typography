@@ -1,14 +1,11 @@
-// Colors - Light theme (defaults)
-$backgroundColor: #ffffff !default;
-$foregroundColor: #2e405b !default;
-
 // Fonts
-$fontList: "Source Sans Pro", "Roboto", "Helvetica", "Helvetica Neue",
-  "Source Han Sans SC", "Source Han Sans TC", "PingFang SC", "PingFang HK",
-  "PingFang TC", sans-serif !default;
-$titleFontList: "HiraMinProN-W6", "Source Han Serif CN", "Source Han Serif SC",
-  "Source Han Serif TC", serif !default;
-$monoFontList: Monaco, Menlo, "Source Code Pro", "Cascadia Code", Consolas, monospace !default;
+$fontList: "HarmonyOS Sans SC", "HarmonyOS Sans", "Source Sans Pro", "Roboto",
+  "Helvetica", "Helvetica Neue", "Source Han Sans SC", "Source Han Sans TC",
+  "PingFang SC", "PingFang HK", "PingFang TC", sans-serif !default;
+$titleFontList: "Noto Serif SC", "HiraMinProN-W6", "Source Han Serif CN",
+  "Source Han Serif SC", "Source Han Serif TC", serif !default;
+$monoFontList: "monofoki", Monaco, Menlo, "Source Code Pro", "Cascadia Code",
+  Consolas, monospace !default;
 
 // Sidebar
 $verticalPrimaryPaddingTopPatch: 0;

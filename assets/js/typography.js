@@ -1,6 +1,58 @@
 (function () {
   var stage;
   var activeFetchController = null;
+  var themeStorageKey = 'theme';
+
+  function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function getPreferredTheme() {
+    var savedTheme = null;
+
+    try {
+      savedTheme = window.localStorage.getItem(themeStorageKey);
+    } catch (error) {}
+
+    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    return document.documentElement.dataset.defaultTheme || getSystemTheme();
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    updateThemeToggle(theme);
+  }
+
+  function persistTheme(theme) {
+    try {
+      window.localStorage.setItem(themeStorageKey, theme);
+    } catch (error) {}
+  }
+
+  function updateThemeToggle(theme) {
+    var toggle = document.querySelector('[data-theme-toggle]');
+    if (!toggle) return;
+
+    var label = theme === 'dark' ? '切换到浅色' : '切换到深色';
+
+    toggle.setAttribute('aria-label', label);
+    toggle.setAttribute('title', label);
+  }
+
+  function bindThemeToggle() {
+    var toggle = document.querySelector('[data-theme-toggle]');
+    if (!toggle || toggle.dataset.bound === 'true') return;
+
+    toggle.addEventListener('click', function () {
+      var currentTheme = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
+      var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      applyTheme(nextTheme);
+      persistTheme(nextTheme);
+    });
+
+    toggle.dataset.bound = 'true';
+  }
 
   function updateSidebar() {
     var sideBar = document.getElementById('side-bar');
@@ -8,13 +60,9 @@
     if (!stage || !sideBar || !mainContainer) return;
 
     if (window.innerWidth <= 768 || window.innerHeight <= 600) {
-      sideBar.style.width = stage.offsetWidth + 'px';
-      mainContainer.classList.remove('col-sm-9');
+      sideBar.style.width = '100%';
     } else {
-      var sidebarW =
-        stage.offsetWidth - mainContainer.offsetWidth + (window.innerWidth - stage.clientWidth) / 2;
-      sideBar.style.width = sidebarW + 'px';
-      mainContainer.classList.add('col-sm-9');
+      sideBar.style.width = '';
     }
   }
 
@@ -137,6 +185,8 @@
     updateCurrentNav(new URL(url, window.location.origin).pathname);
     updateSidebar();
     revealLayout();
+    bindThemeToggle();
+    updateThemeToggle(document.documentElement.getAttribute('data-theme') || getPreferredTheme());
     window.scrollTo({ top: 0, behavior: 'auto' });
 
     if (pushState) {
@@ -195,11 +245,20 @@
     stage = document.getElementById('stage');
     if (!stage) return;
 
+    applyTheme(getPreferredTheme());
     window.addEventListener('resize', updateSidebar);
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+      try {
+        if (window.localStorage.getItem(themeStorageKey)) return;
+      } catch (error) {}
+
+      applyTheme(getSystemTheme());
+    });
     updateSidebar();
     revealLayout();
     bindTitleClick();
     bindNavigation();
+    bindThemeToggle();
     updateCurrentNav(window.location.pathname);
   }
 
