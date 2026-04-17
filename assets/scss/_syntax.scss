@@ -10,6 +10,18 @@ pre {
   font-family: $monoFontList !important;
 }
 
+figure.highlight,
+.chroma.lntable {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+html[data-theme="dark"] figure.highlight,
+html[data-theme="dark"] .chroma.lntable {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 // Hugo Chroma syntax highlighting
 .chroma {
   color: var(--foreground-color);
@@ -43,11 +55,22 @@ figure {
 
   .code {
     width: 99%;
+    position: relative;
+
     pre {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
-      border-left: solid rgba(0, 0, 0, 0.05) 1px;
       margin-right: 1px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 25%;
+      height: 50%;
+      width: 1px;
+      background: var(--line-color);
     }
   }
 }
@@ -92,13 +115,24 @@ figure {
 
       &:last-child {
         width: 99%;
+        position: relative;
 
         pre {
           background-color: transparent !important;
-          border-left: 1px solid var(--gutter-border);
+          border-left: none;
           border-radius: 0;
           margin: 0;
           padding: 18px 1em;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 25%;
+          height: 50%;
+          width: 1px;
+          background: var(--line-color);
         }
       }
     }
