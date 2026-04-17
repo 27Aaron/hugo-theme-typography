@@ -34,9 +34,11 @@
     if (!toggle) return;
 
     var label = theme === 'dark' ? '切换到浅色' : '切换到深色';
+    var icon = 'fa fa-adjust';
 
     toggle.setAttribute('aria-label', label);
     toggle.setAttribute('title', label);
+    toggle.querySelector('i').className = icon;
   }
 
   function bindThemeToggle() {
